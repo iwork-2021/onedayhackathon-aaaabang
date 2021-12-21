@@ -8,10 +8,16 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
+protocol ShowItemDelegate{
+   
+}
 
 class CollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var titleBar: UINavigationItem!
+    var items:[UIImage] = []
+    var showItemDelegate:ShowItemDelegate?
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,10 +25,10 @@ class CollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        titleBar.title = "hi"
+        
     }
 
     /*
@@ -39,20 +45,25 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return items.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+        
         // Configure the cell
-    
+        if(cell.image == nil){
+            print("false")
+        }
+        print("ok")
+        cell.image.image = items[indexPath.row]
+        cell.index = indexPath.row
         return cell
     }
 
@@ -87,4 +98,15 @@ class CollectionViewController: UICollectionViewController {
     }
     */
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier! == "singlePic"{
+            let addPhoViewController = segue.destination as! PhotoViewController
+            let cell = sender as! CollectionViewCell
+            
+            addPhoViewController.pic = items[cell.index]
+        }
+        
+    }
 }

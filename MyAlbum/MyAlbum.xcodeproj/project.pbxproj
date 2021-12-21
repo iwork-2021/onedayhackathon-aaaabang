@@ -13,12 +13,14 @@
 		6361D7B62771A372001106CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6361D7B52771A372001106CF /* Assets.xcassets */; };
 		6361D7B92771A372001106CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6361D7B72771A372001106CF /* LaunchScreen.storyboard */; };
 		6361D7C12771A468001106CF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7C02771A468001106CF /* TableViewController.swift */; };
-		6361D7C32771A503001106CF /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7C22771A503001106CF /* PhotosCollectionViewController.swift */; };
 		6361D7C62771A50D001106CF /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7C42771A50D001106CF /* AlbumItem.swift */; };
 		6361D7C72771A50D001106CF /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7C52771A50D001106CF /* AlbumTableViewCell.swift */; };
 		6361D7CB2771A938001106CF /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7CA2771A938001106CF /* CGImagePropertyOrientation.swift */; };
-		6361D7CD2771A961001106CF /* snacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7CC2771A961001106CF /* snacks.mlmodel */; };
 		6361D7D12771AB49001106CF /* AddPhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7D02771AB49001106CF /* AddPhoViewController.swift */; };
+		6361D7D32771B549001106CF /* snacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7D22771B549001106CF /* snacks.mlmodel */; };
+		6361D7D92771CE72001106CF /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7D82771CE72001106CF /* PhotosCollectionViewController.swift */; };
+		6361D7DB2771D055001106CF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7DA2771D055001106CF /* CollectionViewCell.swift */; };
+		6361D7DD2771E24D001106CF /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D7DC2771E24C001106CF /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +32,14 @@
 		6361D7B82771A372001106CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6361D7BA2771A372001106CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6361D7C02771A468001106CF /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		6361D7C22771A503001106CF /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		6361D7C42771A50D001106CF /* AlbumItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
 		6361D7C52771A50D001106CF /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		6361D7CA2771A938001106CF /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
-		6361D7CC2771A961001106CF /* snacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = snacks.mlmodel; path = "../onedayhackathon-aaaabang/snacks.mlmodel"; sourceTree = "<group>"; };
 		6361D7D02771AB49001106CF /* AddPhoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoViewController.swift; sourceTree = "<group>"; };
+		6361D7D22771B549001106CF /* snacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = snacks.mlmodel; path = ../snacks.mlmodel; sourceTree = "<group>"; };
+		6361D7D82771CE72001106CF /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		6361D7DA2771D055001106CF /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		6361D7DC2771E24C001106CF /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,7 @@
 		6361D7A02771A36C001106CF = {
 			isa = PBXGroup;
 			children = (
-				6361D7CC2771A961001106CF /* snacks.mlmodel */,
+				6361D7D22771B549001106CF /* snacks.mlmodel */,
 				6361D7AB2771A36C001106CF /* MyAlbum */,
 				6361D7AA2771A36C001106CF /* Products */,
 			);
@@ -72,12 +76,14 @@
 				6361D7CA2771A938001106CF /* CGImagePropertyOrientation.swift */,
 				6361D7C52771A50D001106CF /* AlbumTableViewCell.swift */,
 				6361D7C42771A50D001106CF /* AlbumItem.swift */,
-				6361D7C22771A503001106CF /* PhotosCollectionViewController.swift */,
 				6361D7C02771A468001106CF /* TableViewController.swift */,
 				6361D7AC2771A36C001106CF /* AppDelegate.swift */,
 				6361D7AE2771A36C001106CF /* SceneDelegate.swift */,
 				6361D7B22771A36C001106CF /* Main.storyboard */,
 				6361D7D02771AB49001106CF /* AddPhoViewController.swift */,
+				6361D7D82771CE72001106CF /* PhotosCollectionViewController.swift */,
+				6361D7DC2771E24C001106CF /* PhotoViewController.swift */,
+				6361D7DA2771D055001106CF /* CollectionViewCell.swift */,
 				6361D7B52771A372001106CF /* Assets.xcassets */,
 				6361D7B72771A372001106CF /* LaunchScreen.storyboard */,
 				6361D7BA2771A372001106CF /* Info.plist */,
@@ -156,15 +162,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6361D7DB2771D055001106CF /* CollectionViewCell.swift in Sources */,
 				6361D7AD2771A36C001106CF /* AppDelegate.swift in Sources */,
 				6361D7CB2771A938001106CF /* CGImagePropertyOrientation.swift in Sources */,
 				6361D7C62771A50D001106CF /* AlbumItem.swift in Sources */,
 				6361D7AF2771A36C001106CF /* SceneDelegate.swift in Sources */,
 				6361D7C12771A468001106CF /* TableViewController.swift in Sources */,
-				6361D7CD2771A961001106CF /* snacks.mlmodel in Sources */,
-				6361D7C32771A503001106CF /* PhotosCollectionViewController.swift in Sources */,
+				6361D7D32771B549001106CF /* snacks.mlmodel in Sources */,
 				6361D7D12771AB49001106CF /* AddPhoViewController.swift in Sources */,
 				6361D7C72771A50D001106CF /* AlbumTableViewCell.swift in Sources */,
+				6361D7D92771CE72001106CF /* PhotosCollectionViewController.swift in Sources */,
+				6361D7DD2771E24D001106CF /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

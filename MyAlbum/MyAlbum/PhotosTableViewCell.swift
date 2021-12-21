@@ -1,17 +1,16 @@
 //
-//  AlbumTableViewCell.swift
-//  Album
+//  PhotosTableViewCell.swift
+//  MyAlbum
 //
 //  Created by aaaabang on 2021/12/21.
 //
 
 import UIKit
 
-class AlbumTableViewCell: UITableViewCell {
+class PhotosTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var count: UILabel!
-    var _index:Int = -1
+    @IBOutlet weak var image1: UIImageView!
+    @IBOutlet weak var image2: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

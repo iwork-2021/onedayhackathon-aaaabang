@@ -1,17 +1,14 @@
 //
-//  TableViewController.swift
-//  Album
+//  ShowPhotosViewController.swift
+//  MyAlbum
 //
 //  Created by aaaabang on 2021/12/21.
 //
 
 import UIKit
 
-class TableViewController: UITableViewController{
+class ShowPhotosViewController: UITableViewController {
 
-    
-    var items:[AlbumItem] = [
-    ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,35 +17,29 @@ class TableViewController: UITableViewController{
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        //loadItems()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumItem", for: indexPath)as! AlbumTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        let item = items[indexPath.row]
-        cell.title.text! = item.title
-        cell.count.text! = String(item.count)
-        cell._index = indexPath.row
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -85,48 +76,14 @@ class TableViewController: UITableViewController{
     }
     */
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier! == "addItem"{
-            let addPhoViewController = segue.destination as! AddPhoViewController
-            addPhoViewController.addItemDelegate = self
-        }
-        
-        if segue.identifier! == "showItem"{
-            let PhotosViewController = segue.destination as! CollectionViewController
-            PhotosViewController.showItemDelegate = self
-            let cell = sender as! AlbumTableViewCell
-            PhotosViewController.items = items[cell._index].photos
-            PhotosViewController.titleBar.title = items[cell._index].title
-        }
     }
-    
+    */
 
-}
-
-extension TableViewController:AddItemDelegate{
-    func addPhoto(title:String,pic:UIImage) {
-        for item in items{
-            if(item.title == title)
-            {
-                item.photos.append(pic)
-                item.count += 1
-                self.tableView.reloadData()
-                return
-            }
-        }
-        
-        items.append(AlbumItem(title: title, photos: [pic], count: 1))
-        self.tableView.reloadData()
-        return
-    }
-}
-
-extension TableViewController:ShowItemDelegate{
-    
 }

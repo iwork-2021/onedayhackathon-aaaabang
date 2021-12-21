@@ -7,13 +7,16 @@
 
 import UIKit
 
-class AlbumItem: NSObject ,Encodable,Decodable {
+class AlbumItem: NSObject {
 
         var title:String
+        var photos:[UIImage]
         var count: Int
         
-    init(title:String,count:Int) {
+        
+    init(title:String,photos:[UIImage],count:Int) {
             self.title = title
+            self.photos = photos
             self.count = count
         }
     

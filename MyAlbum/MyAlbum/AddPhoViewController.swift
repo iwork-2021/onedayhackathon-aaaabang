@@ -45,6 +45,11 @@ import CoreMedia
 import CoreML
 import Vision
 
+protocol AddItemDelegate{
+    func addPhoto(title:String,pic:UIImage)
+}
+
+
 class AddPhoViewController: UIViewController {
   
   @IBOutlet var imageView: UIImageView!
@@ -55,7 +60,11 @@ class AddPhoViewController: UIViewController {
     @IBOutlet var resultsConstraint: NSLayoutConstraint!
     
     var firstTime = true
-      
+    
+    var title_res:String = "wrong"
+    var photo:UIImage?
+    var addItemDelegate:AddItemDelegate?
+
     lazy var classificationRequest: VNCoreMLRequest = {
           do{
               let classifier = try snacks(configuration: MLModelConfiguration())
@@ -92,6 +101,13 @@ class AddPhoViewController: UIViewController {
         
     }
     
+    @IBAction func takePicture() {
+      presentPhotoPicker(sourceType: .camera)
+    }
+
+    @IBAction func choosePhoto() {
+      presentPhotoPicker(sourceType: .photoLibrary)
+    }
 
 
     func presentPhotoPicker(sourceType: UIImagePickerController.SourceType) {
@@ -145,8 +161,9 @@ class AddPhoViewController: UIViewController {
 
       let image = info[.originalImage] as! UIImage
       imageView.image = image
-
+        photo = image
       classify(image: image)
+       
     }
       
     func processObservations(for request: VNRequest, error: Error?) {
@@ -154,19 +171,21 @@ class AddPhoViewController: UIViewController {
                   if results.isEmpty {
                       self.resultsLabel.text = "Nothing found"
                   } else {
-                      let result = results[0].identifier
+                      var result = results[0].identifier
                       let confidence = results[0].confidence
                       self.resultsLabel.text = result + String(format: "%.1f%%", confidence * 100)
                       if confidence > 0.9{
                           self.resultsLabel.text = result + String(format: "%.1f%%", confidence * 100)
                       }else{
                           self.resultsLabel.text = "not sure"
+                          result = "not sure"
                       }
                       print(result)
                       showResultsView()
                       //self.confidenceLabel.text = String(format: "%.1f%%", confidence * 100)
+                      title_res = result
+                      self.addItemDelegate?.addPhoto(title: result, pic: photo!)
                       
-                      print(result)
                   }
               } else if let error = error {
                   self.resultsLabel.text = "Error: \(error.localizedDescription)"
